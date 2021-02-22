@@ -1,3 +1,5 @@
+<svelte:options accessors={true} />
+
 <script type="text/coffeescript">
   import {onMount} from 'Svelte'
 
@@ -55,10 +57,24 @@
   
   place = null
   view = null
+  export value = ''
+  export hideToggle = true
+  export mode = 'markdown' 
+
+  f = () ->
+    view.content
+  `export const getValue = f`
+  
+
+  f = (value) ->
+    view.destroy()
+    View = if @.value is 'markdown' then MarkdownView else ProseMirrorView
+    view = new View(place, value)
+  `export const setValue = f`
 
   toggleEditor = (e) ->
     if not @.checked then return
-    View = if @.value is 'markdown' then MarkdownView else ProseMirrorView
+    View = if mode is 'markdown' then MarkdownView else ProseMirrorView
     if view instanceof View then return
     content = view.content
     view.destroy()
@@ -66,20 +82,20 @@
     view.focus()  
 
   onMount () ->
-    value = 'This **"5 Second Hack"** Could Transform Your Health'
-    view = new ProseMirrorView(place, value)
+    View = if mode is 'markdown' then MarkdownView else ProseMirrorView
+    view = new View(place, value)
 </script>
 
 <template lang="pug">
   div.editor(bind:this='{place}')
-  div(style='text-align:center')
+  div(style='text-align: right' class:hideToggle)
     label.toggle(style='border-right: 1px solid silver')
       span Rich Text&nbsp;
-      input(type='radio' name='inputformat' on:change='{toggleEditor}' value='prosemirror' checked) 
+      input(type='radio' bind:group='{mode}' on:change='{toggleEditor}' value='prosemirror') 
       span &nbsp; 
     label.toggle
       span &nbsp;
-      input(type='radio' name='inputformat' on:change='{toggleEditor}' value='markdown')
+      input(type='radio' bind:group='{mode}' on:change='{toggleEditor}' value='markdown')
       span &nbsp;Markdown 
 
 </template>
@@ -112,7 +128,12 @@
   }
 
   label.toggle {
-    font-weight: bold;
     display: inline;
+    color: gray;
+    font-size: 80%;
+  }
+
+  .hideToggle {
+    display: none;
   }
 </style>
