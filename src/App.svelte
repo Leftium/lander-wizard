@@ -3,18 +3,6 @@
 
   fileInput = null
 
-    ## Counter sample based on https://svelte.dev/tutorial/reactive-statements
-  count = 0
- 
-  ## Mark Svelte reactive CoffeeScript statements by escaping out to JavaScript.
-  ## (Normally CoffeeScript syntax is incompatible with Svelte Reactive statements.)
-
-  `$: {`  ## Start Svelte reactive block.
-  if count >= 10
-    alert 'count is dangerously high!'
-    count = 9
-  `}`     ## End reactive block.
-
   openImagePicker = () ->
     fileInput.click()
 </script>
