@@ -25,9 +25,21 @@
       li: a(href='#image') Image
       li: a(href='#headline') Headline
       li: a(href='#body') Body
-        li: a(href='#expert') Expert and Problem
+      ul
+	      li: a(href='#expert') Expert and Problem
         li: a(href='#solution') Solution and Common Enemy
-
+      li: a(href='#quiz') Quiz
+      ul
+        li: a(href='#q1') Question 1
+        li: a(href='#q2') Question 2
+        li: a(href='#q3') Question 3
+        li: a(href='#q4') Question 4
+      li: a(href='#congratulations') Congratulations
+      ul
+        li: a(href='#g1') Guideline 1
+        li: a(href='#g2') Guideline 2
+        li: a(href='#g3') Guideline 3
+        li: a(href='#agree') Agree Button
   main
     fieldset#image
       legend Image
@@ -84,8 +96,84 @@
       fieldset#solution
         legend Solution and Common Enemy
         div Whistle-blower Dr. Chen discovered a simple method to lose weight and keep it off (not exercise or diet).
+      fieldset#cta
+        legend Call to Action
+        input(value='Take the quiz below')
 
+    fieldset#quiz
+      legend Quiz
+      fieldset#q1
+        legend Question 1
+        div
+          label Question
+          input(value='Do you or anyone you know work at a diet/fitness company?')
+        div
+          div.answer
+            label Answer A
+            input(value='Yes')
+          div.answer
+            label Answer B
+            input(value='No')
+      fieldset#q2
+        legend Question 2
+        div
+          label Question
+          input(value='Do you or anyone you know work at a diet/fitness company?')
+        div
+          div.answer
+            label Answer A
+            input(value='Yes')
+          div.answer
+            label Answer B
+            input(value='No')
+      fieldset#q3
+        legend Question 3
+        div
+          label Question
+          input(value='Do you or anyone you know work at a diet/fitness company?')
+        div
+          div.answer
+            label Answer A
+            input(value='Yes')
+          div.answer
+            label Answer B
+            input(value='No')
+      fieldset#q4
+        legend Question 4
+        div
+          label Question
+          input(value='Do you or anyone you know work at a diet/fitness company?')
+        div
+          div.answer
+            label Answer A
+            input(value='Yes')
+          div.answer
+            label Answer B
+            input(value='No')
 
+    fieldset#congratulations
+      legend Congratulations
+      fieldset#congratulationsheader
+        legend Congratulations Header
+        span Congratulations! Before you watch the presentation with Dr. Chen's discoveries, 
+        | our lawyers have asked us to require that each person agrees to the following guidelines:
+      fieldset#g1
+        legend Guideline 1
+        span You must NOT talk about the details of this presentation with ANYONE due to the weight loss 
+        | industry secrets contained within.
+      fieldset#g2
+        legend Guideline 2
+        span If you lose too much weight, too fast, consult a doctor. This powerful secret can help quickly 
+        | shed pounds and must be used responsibly.
+      fieldset#g3
+        legend Guideline 3
+        span This presentation is ONLY being made available to a select group of people and will be 
+        | REMOVED if Dr. Chen comes under too much pressure from the weight loss industry. If you do not 
+        | want to discover these industry secrets, please CLOSE THIS WINDOW IMMEDIATELY to free up your 
+        | slot for the next person in line.
+      fieldset#agree
+        legend Agree Button
+        input(value='I Agree!')
     footer
 </template>
 
@@ -124,6 +212,11 @@
     background-color: lightyellow;
   }
 
+  div.answer {
+    width: 50%;
+    display: inline-block;
+  }
+
   @media (min-width: 640px) {
     main {
       max-width: none;
@@ -134,6 +227,9 @@
     width: 400px;
   }
 
+  label {
+    font-weight: bold;
+  }
   input {
     width: 100%;
   }
