@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 
 import json from '@rollup/plugin-json';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 const createPreprocessors = require('./svelte.config').createPreprocessors;
 
@@ -42,6 +43,8 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		json(),
+		nodePolyfills(),
 		svelte({
       preprocess: [createPreprocessors()],
 			compilerOptions: {
@@ -49,7 +52,6 @@ export default {
 				dev: !production
 			}
 		}),
-		json,
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),

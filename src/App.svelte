@@ -1,7 +1,78 @@
 <script lang="coffeescript">
+  import {onMount} from 'Svelte'
   import ProgressNav  from './components/ProgressNav.svelte'
 
+  import { EditorView } from 'prosemirror-view'
+  import { EditorState } from 'prosemirror-state'
+  import { schema, defaultMarkdownParser, defaultMarkdownSerializer } from 'prosemirror-markdown'
+  import { exampleSetup } from 'prosemirror-example-setup'
+
   fileInput = null
+
+  class MarkdownView
+    constructor: (target, content) ->
+      @textarea = target.appendChild(document.createElement('textarea'))
+      @textarea.value = content
+
+    focus: ()-> @textarea.focus()
+    destroy: ()-> @textarea.remove()
+
+    ```
+    get content() { return this.textarea.value }
+    ```
+  class ProseMirrorView
+    constructor: (target, content) ->
+      @view = new EditorView(target, {
+        state: EditorState.create({
+          doc: defaultMarkdownParser.parse(content),
+          plugins: exampleSetup({schema})
+        })
+      })
+  
+    focus: ()-> @view.focus()
+    destroy: ()-> @view.destroy()
+
+    ```
+    get content() {
+      return defaultMarkdownSerializer.serialize(this.view.state.doc)
+    }
+    ```
+  
+  
+  place = null
+  view = null
+  content = null
+
+  
+  onMount () ->
+    view = new ProseMirrorView(place, content.value)
+
+    ```
+    document.querySelectorAll("input[type=radio]").forEach(button => {
+      console.log('button')
+      button.addEventListener("change", () => {
+        console.log('change');
+        if (!button.checked) return
+        let View = button.value == "markdown" ? MarkdownView : ProseMirrorView
+        if (view instanceof View) return
+        let content = view.content
+        view.destroy()
+        view = new View(place, content)
+        view.focus()
+      })
+    })
+    ```
+
+  toggleEditor = (e) ->
+    console.log 'CHANGE'
+    if not @.checked then return
+    View = if @.value is 'markdown' then MarkdownView else ProseMirrorView
+    if view instanceof View then return
+    content = view.content
+    view.destroy()
+    view = new View(place, content)
+    view.focus() 
+
 
   openImagePicker = () ->
     fileInput.click()
@@ -65,7 +136,19 @@
         Get more training on winning images here.
     fieldset#headline
       legend Headline
-      div: input(value='This "7 Second Hack" Could Transform Your Health')
+      div.editor(bind:this='{place}')
+      div(style='text-align:center')
+        label.toggle(style='border-right: 1px solid silver')
+          span Rich Text&nbsp;
+          input(type='radio' name='inputformat' on:change='{toggleEditor}' value='prosemirror' checked) 
+          span &nbsp; 
+        label.toggle
+          span &nbsp;
+          input(type='radio' name='inputformat' on:change='{toggleEditor}' value='markdown')
+          span &nbsp;Markdown 
+
+      div
+        textarea(bind:this='{content}' style='display:none;') This **"7 Second Hack"** Could Transform Your Health
       div
         b Template: 
         span Discover How This **[MECHANISM]** Could [BENEFIT]
@@ -218,11 +301,33 @@
   label {
     font-weight: bold;
   }
-  input {
+
+  label.toggle {
+    display: inline;
+  }
+
+  input.wide {
     width: 100%;
   }
 
   footer {
     height: 1200px;
+  }
+
+  .editor {
+    padding: 0;
+    margin: 0;
+    height: 80px;
+  }
+
+  :global(.editor textarea) {
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0;
+  }
+
+  :global(.editor textarea:focus) {
+    outline: none !important;
   }
 </style>
