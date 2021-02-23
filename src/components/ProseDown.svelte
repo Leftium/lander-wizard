@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script type="text/coffeescript">
-  import {onMount} from 'Svelte'
+  import {onMount} from 'svelte'
 
   import { EditorView } from 'prosemirror-view'
   import { EditorState } from 'prosemirror-state'
