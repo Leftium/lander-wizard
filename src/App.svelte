@@ -67,15 +67,19 @@
     fieldset#headline
       legend Headline
       ProseDown(hideToggle='{false}' mode='prosemirror' value='This **"7 Second Hack"** Could Transform Your Health')
-      div
+      div.ai
+        div
+          button AI Tweak
+          span This button will suggest a new headline based on the current headline.
+      div.guide
         b Template: 
         span Discover How This **[MECHANISM]** Could [BENEFIT]
-      div
-        b Models: 
-        ul 
-          li This "7 Second Hack" Could Transform Your Health
-          li This "7 Second Hack" Could Transform Your Health
-          li This "7 Second Hack" Could Transform Your Health
+        div
+          b Models:
+          ul
+            li This "7 Second Hack" Could Transform Your Health
+            li This "7 Second Hack" Could Transform Your Health
+            li This "7 Second Hack" Could Transform Your Health
 
     fieldset#body
       legend Body
