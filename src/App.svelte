@@ -159,7 +159,7 @@
         legend Question 2
         div
           label Question
-          ProseDown(value='Do you or anyone you know work at a diet/fitness company?')
+          ProseDown(value='Have you tried a diet that didn’t work in the last 12 months?')
         div
           div.answer
             label Answer A
@@ -171,7 +171,7 @@
         legend Question 3
         div
           label Question
-          ProseDown(value='Do you or anyone you know work at a diet/fitness company?')
+          ProseDown(value='Has your doctor diagnosed you with excess ghrelin?')
         div
           div.answer
             label Answer A
@@ -183,7 +183,7 @@
         legend Question 4
         div
           label Question
-          ProseDown(value='Do you or anyone you know work at a diet/fitness company?')
+          ProseDown(value='Are you over 40 years old?')
         div
           div.answer
             label Answer A
