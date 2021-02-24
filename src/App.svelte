@@ -151,10 +151,10 @@
         div
           div.answer
             label Answer A
-            ProseDown(value='Yes')
+            ProseDown(value='Yes' mode='markdown' hideToggle='{true}')
           div.answer
             label Answer B
-            ProseDown(value='No')
+            ProseDown(value='No' mode='markdown' hideToggle='{true}')
       fieldset#q2
         legend Question 2
         div
@@ -163,10 +163,10 @@
         div
           div.answer
             label Answer A
-            ProseDown(value='Yes')
+            ProseDown(value='Yes' mode='markdown' hideToggle='{true}')
           div.answer
             label Answer B
-            ProseDown(value='No')
+            ProseDown(value='No' mode='markdown' hideToggle='{true}')
       fieldset#q3
         legend Question 3
         div
@@ -175,10 +175,10 @@
         div
           div.answer
             label Answer A
-            ProseDown(value='Yes')
+            ProseDown(value='Yes' mode='markdown' hideToggle='{true}')
           div.answer
             label Answer B
-            ProseDown(value='No')
+            ProseDown(value='No' mode='markdown' hideToggle='{true}')
       fieldset#q4
         legend Question 4
         div
@@ -187,10 +187,10 @@
         div
           div.answer
             label Answer A
-            ProseDown(value='Yes')
+            ProseDown(value='Yes' mode='markdown' hideToggle='{true}')
           div.answer
             label Answer B
-            ProseDown(value='No')
+            ProseDown(value='No' mode='markdown' hideToggle='{true}')
 
     fieldset#congratulations
       legend Congratulations

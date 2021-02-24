@@ -58,8 +58,8 @@
   place = null
   view = null
   export value = ''
-  export hideToggle = true
-  export mode = 'markdown' 
+  export hideToggle = false
+  export mode = 'prosemirror' 
 
   f = () ->
     view.content
