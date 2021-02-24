@@ -33,7 +33,7 @@
     fieldset#image
       legend Image
       div
-          img(src='img/ad-image.jpg' alt='ad image' on:click='{openImagePicker}')
+          img(src='img/adimage.jpg' alt='ad image' on:click='{openImagePicker}')
           button(on:click='{openImagePicker}') Upload Image
           input(type='file' bind:this='{fileInput}' style='display:none')
 
