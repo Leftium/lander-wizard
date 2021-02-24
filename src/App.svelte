@@ -48,26 +48,35 @@
 </script>
 
 <template lang="pug">
-  div.nav: ProgressNav
-    ul
-      li: a(href='#image') Image
-      li: a(href='#headline') Headline
-      li: a(href='#body') Body
+
+  div.sidebar
+    h1 Lander Wizard
+    a(target='_blank' href='https://www.amazinghealthscience.com/lander/o1Wp')
+      button View Lander
+    div: :markdown-it(linkify langPrefix='highlight-')
+      View your lander at this [link](https://www.amazinghealthscience.com/lander/o1Wp).
+      Customize your lander using the form to the right.
+    
+    div.nav: ProgressNav
       ul
-	      li: a(href='#expert') Expert and Problem
-        li: a(href='#solution') Solution and Common Enemy
-      li: a(href='#quiz') Quiz
-      ul
-        li: a(href='#q1') Question 1
-        li: a(href='#q2') Question 2
-        li: a(href='#q3') Question 3
-        li: a(href='#q4') Question 4
-      li: a(href='#congratulations') Congratulations
-      ul
-        li: a(href='#g1') Guideline 1
-        li: a(href='#g2') Guideline 2
-        li: a(href='#g3') Guideline 3
-        li: a(href='#agree') Agree Button
+        li: a(href='#image') Image
+        li: a(href='#headline') Headline
+        li: a(href='#body') Body
+        ul
+          li: a(href='#expert') Expert & Problem
+          li: a(href='#solution') Solution & Enemy
+        li: a(href='#quiz') Quiz
+        ul
+          li: a(href='#q1') Question 1
+          li: a(href='#q2') Question 2
+          li: a(href='#q3') Question 3
+          li: a(href='#q4') Question 4
+        li: a(href='#congratulations') Congratulations
+        ul
+          li: a(href='#g1') Guideline 1
+          li: a(href='#g2') Guideline 2
+          li: a(href='#g3') Guideline 3
+          li: a(href='#agree') Agree Button
   main
     fieldset#image
       legend Image
@@ -123,10 +132,10 @@
     fieldset#body
       legend Body
       fieldset#expert
-        legend Expert and Problem
+        legend Expert & Problem
         ProseDown(value='Whistle-blower Dr. Chen discovered a simple method to lose weight and keep it off (not exercise or diet).')
       fieldset#solution
-        legend Solution and Common Enemy
+        legend Solution & Common Enemy
         ProseDown(value="Chen's new method addresses the root-cause of obesity so well, the weight loss industry is trying to keep him quiet.")
       fieldset#cta
         legend Call to Action
@@ -205,7 +214,7 @@
 </template>
 
 <style>
-  :global(.nav) {
+  .sidebar {
     position: fixed;
     left: 1em;
     top: 1em;
@@ -224,7 +233,7 @@
   }
   legend {
     font-size: 300%;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
 
   fieldset fieldset legend {
