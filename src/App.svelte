@@ -108,7 +108,7 @@
       ProseDown(bind:this='{inputHeadline}' hideToggle='{false}' mode='prosemirror' value='This **"7 Second Hack"** Could Transform Your Health')
       div.ai
         div
-          button(on:click='{doAiHeadline}') AI Suggestion
+          button(on:click='{doAiHeadline}') AI Rewrite
           span &nbsp;This button will suggest a new headline based on the current headline.
       div.guide
         b Template: 
