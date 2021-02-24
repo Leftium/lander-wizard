@@ -119,27 +119,39 @@
         div
           button(on:click='{doAiHeadline}') AI Rewrite
           span &nbsp;This button will suggest a new headline based on the current headline.
-      div.guide
-        b Template: 
-        span Discover How This **[MECHANISM]** Could [BENEFIT]
-        div
-          b Models:
-          ul
-            li This "7 Second Hack" Could Transform Your Health
-            li This "7 Second Hack" Could Transform Your Health
-            li This "7 Second Hack" Could Transform Your Health
+      div.guide: :markdown-it(linkify langPrefix='highlight-')
+        After the image, the headline is the 2nd most important part of the lander.
+        Viewers will try to get an answer to the question invoked by the image.
+        ### Template: 
+        Discover How This \*\*[MECHANISM]\*\* Could [BENEFIT]
+        ### Models:
+         - This "7 Second Hack" Could Transform Your Health
+         - This "7 Second Hack" Could Transform Your Health
+         - This "7 Second Hack" Could Transform Your Health
 
     fieldset#body
       legend Body
       fieldset#expert
         legend Expert & Problem
         ProseDown(value='Whistle-blower Dr. Chen discovered a simple method to lose weight and keep it off (not exercise or diet).')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
       fieldset#solution
         legend Solution & Common Enemy
         ProseDown(value="Chen's new method addresses the root-cause of obesity so well, the weight loss industry is trying to keep him quiet.")
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
       fieldset#cta
         legend Call to Action
         ProseDown(value='Take the quiz below')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
+      div.guide: :markdown-it(linkify langPrefix='highlight-')
+        ## Guide/Training
+        TBD
 
     fieldset#quiz
       legend Quiz
@@ -148,6 +160,9 @@
         div
           label Question
           ProseDown(value='Do you or anyone you know work at a diet/fitness company?')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
         div
           div.answer
             label Answer A
@@ -160,6 +175,9 @@
         div
           label Question
           ProseDown(value='Have you tried a diet that didn’t work in the last 12 months?')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
         div
           div.answer
             label Answer A
@@ -172,6 +190,9 @@
         div
           label Question
           ProseDown(value='Has your doctor diagnosed you with excess ghrelin?')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
         div
           div.answer
             label Answer A
@@ -184,6 +205,9 @@
         div
           label Question
           ProseDown(value='Are you over 40 years old?')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
         div
           div.answer
             label Answer A
@@ -191,25 +215,42 @@
           div.answer
             label Answer B
             ProseDown(value='No' mode='markdown' hideToggle='{true}')
+      div.guide: :markdown-it(linkify langPrefix='highlight-')
+        ## Guide/Training
+        TBD
 
     fieldset#congratulations
       legend Congratulations
       fieldset#congratulationsheader
         legend Congratulations Header
         ProseDown(value="Congratulations! Before you watch the presentation with Dr. Chen's discoveries, our lawyers have asked us to require that each person agrees to the following guidelines:")
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
       fieldset#g1
         legend Guideline 1
         ProseDown(value='You must NOT talk about the details of this presentation with ANYONE due to the weight loss industry secrets contained within.')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
       fieldset#g2
         legend Guideline 2
-        span If you lose too much weight, too fast, consult a doctor. This powerful secret can help quickly 
-        | shed pounds and must be used responsibly.
+        ProseDown(value="If you lose too much weight, too fast, consult a doctor. This powerful secret can help quickly shed pounds and must be used responsibly.")
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
       fieldset#g3
         legend Guideline 3
         ProseDown(value='This presentation is ONLY being made available to a select group of people and will be REMOVED if Dr. Chen comes under too much pressure from the weight loss industry. If you do not want to discover these industry secrets, please CLOSE THIS WINDOW IMMEDIATELY to free up your slot for the next person in line.')
+        div.ai: :markdown-it(linkify langPrefix='highlight-')
+          ## AI Analysis
+          TBD
       fieldset#agree
         legend Agree Button
         ProseDown(value='I Agree!')
+      div.guide: :markdown-it(linkify langPrefix='highlight-')
+        ## Guide/Training
+        TBD
     footer
 </template>
 
@@ -246,7 +287,9 @@
   }
 
   .ai h2,
-  .guide h2 {
+  .ai h3,
+  .guide h2,
+  .guide h3 {
     margin-top: 0;
   }
 
