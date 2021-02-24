@@ -3,9 +3,48 @@
   import ProseDown  from './components/ProseDown.svelte'
 
   fileInput = null
-
   openImagePicker = () ->
     fileInput.click()
+
+  inputHeadline = null
+  doAiHeadline = () ->
+    mechanisms = [
+      'Bedtime Ritual'
+      'Ancient Technique'
+      'Hack'
+      'Secret Technique'
+    ]
+    benefits = [
+      'Transform Your Health'
+      'Increase Metabolism'
+      'Lower Blood Sugar'
+    ]
+
+    pickArray = (a) ->
+      a[Math.floor(Math.random() * a.length)]
+
+
+    headlines = [
+      'Potent Natural Body Reset Solution'
+      'Weight Management Tips from 50 Successful People You Can Follow'
+      'Lose Weight This Winter The Healthy Way Topic'
+      'Lose Weight This Winter The Healthy Way'
+      'Most Effective Weight Loss Strategy Revealed'
+      'Increase Testosterone With This Easy Ritual'
+      'My Morning Routine To Stay Lean Without **Dieting**'
+      'The REAL Reason Women Struggle to Lose Weight'
+      '9-Minute Morning Ritual Makes Day a Breeze'
+      'Healthy Meals in 5 Minutes or Less!'
+    ]
+
+
+    newHeadlines = [
+      "Discover How This **#{pickArray mechanisms}** Could #{pickArray benefits}"
+      pickArray headlines
+    ]
+
+    inputHeadline.setValue(pickArray newHeadlines)
+
 </script>
 
 <template lang="pug">
@@ -66,11 +105,11 @@
         Get more training on winning images here.
     fieldset#headline
       legend Headline
-      ProseDown(hideToggle='{false}' mode='prosemirror' value='This **"7 Second Hack"** Could Transform Your Health')
+      ProseDown(bind:this='{inputHeadline}' hideToggle='{false}' mode='prosemirror' value='This **"7 Second Hack"** Could Transform Your Health')
       div.ai
         div
-          button AI Tweak
-          span This button will suggest a new headline based on the current headline.
+          button(on:click='{doAiHeadline}') AI Suggestion
+          span &nbsp;This button will suggest a new headline based on the current headline.
       div.guide
         b Template: 
         span Discover How This **[MECHANISM]** Could [BENEFIT]

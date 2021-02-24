@@ -68,7 +68,7 @@
 
   f = (value) ->
     view.destroy()
-    View = if @.value is 'markdown' then MarkdownView else ProseMirrorView
+    View = if @.mode is 'markdown' then MarkdownView else ProseMirrorView
     view = new View(place, value)
   `export const setValue = f`
 
