@@ -231,6 +231,16 @@
     font-size: 150%;
   }
 
+  .ai,
+  .guide {
+    padding: 4px;
+  }
+
+  .ai h2,
+  .guide h2 {
+    margin-top: 0;
+  }
+
   .ai {
     background-color: aliceblue;
   }
