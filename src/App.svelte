@@ -111,7 +111,7 @@
         One common mistake is placing a product in the image (like a bottle). This closes the loop and
         makes people think they're being sold something. Make sure the story is simple and easy to follow.
 
-        Get more training on winning images here.
+        Get more training on winning images [here](https://innercircle.ultimatefreedom.com/).
     fieldset#headline
       legend Headline
       ProseDown(bind:this='{inputHeadline}' hideToggle='{false}' mode='prosemirror' value='This **"7 Second Hack"** Could Transform Your Health')
@@ -120,8 +120,10 @@
           button(on:click='{doAiHeadline}') AI Rewrite
           span &nbsp;This button will suggest a new headline based on the current headline.
       div.guide: :markdown-it(linkify langPrefix='highlight-')
-        After the image, the headline is the 2nd most important part of the lander.
-        Viewers will try to get an answer to the question invoked by the image.
+        After the image, the headline is the second most important part of the lander.
+        Viewers will try to find an answer to the question invoked by the image in the headline .
+        The headline should hint at some solution that provides a major benefit.
+        Don't close the loop! The viewer's curiosity should only get *stronger* after reading the headline.
         ### Template: 
         Discover How This \*\*[MECHANISM]\*\* Could [BENEFIT]
         ### Models:
